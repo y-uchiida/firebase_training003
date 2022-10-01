@@ -1,4 +1,4 @@
-import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
 import { TodoItem } from "../@types/TodoItem";
 import { db } from "./firebase";
 
@@ -18,4 +18,8 @@ export const createTodo = async (title: string, uid: string) => {
 		title,
 		createdAt: serverTimestamp()
 	});
+};
+
+export const deleteTodo = async (todoId: string) => {
+	await deleteDoc(doc(db, 'todoItems', todoId));
 };

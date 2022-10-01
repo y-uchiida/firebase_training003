@@ -43,6 +43,9 @@ export const DashBoard = () => {
 			alert('error: you are not log in this service.');
 			return;
 		}
+		if (todoInputValue.length < 1) {
+			return
+		}
 		await createTodo(todoInputValue, currentUser?.uid);
 		setTodoInputValue('');
 	}
@@ -60,7 +63,7 @@ export const DashBoard = () => {
 								setTodoInputValue(e.target.value);
 							}}
 						/>
-						<button>Add</button>
+						<button disabled={todoInputValue.length < 1}>Add</button>
 					</form>
 					:
 					<button onClick={signInWithGoogle}>signIn with google</button>

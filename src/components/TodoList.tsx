@@ -1,8 +1,13 @@
 import React from 'react'
 import { TodoItem } from '../@types/TodoItem'
+import { deleteTodo } from '../service/firebaseApi'
 
 interface props {
 	todoList: TodoItem[]
+}
+
+const handleDelete = async (todoId: string) => {
+	await deleteTodo(todoId);
 }
 
 export const TodoList = ({ todoList }: props) => {
@@ -13,7 +18,10 @@ export const TodoList = ({ todoList }: props) => {
 				?
 				<ul>
 					{todoList.map(todoItem => {
-						return <li key={todoItem.id}>{todoItem.title}</li>
+						return <li key={todoItem.id}>
+							{todoItem.title}
+							<button onClick={() => handleDelete(todoItem.id!)}>delete</button>
+						</li>
 					})}
 				</ul>
 				: <></>
