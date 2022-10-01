@@ -26,3 +26,8 @@ dist-ssr
 # environment settings
 .env*
 !.env.example
+
+# firebase settings
+.firebase
+.firebaserc
+firebase.json

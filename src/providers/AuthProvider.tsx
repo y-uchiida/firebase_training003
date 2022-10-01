@@ -22,6 +22,7 @@ export const AuthProvider: FC<props> = ({ children }: props) => {
 				setCurrentUser(user);
 			})
 		}
+		unSub();
 		return unSub;
 	}, []);
 
