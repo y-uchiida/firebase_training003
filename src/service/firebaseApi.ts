@@ -1,8 +1,9 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
+import { TodoItem } from "../@types/TodoItem";
 import { db } from "./firebase";
 
-
-const initialToDoItem = {
+const initialToDoItem: TodoItem = {
+	id: null,
 	uid: '',
 	title: '',
 	isComplete: false,
