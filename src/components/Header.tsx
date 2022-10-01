@@ -9,14 +9,12 @@ export const Header = () => {
 	return (
 		<header>
 			React Todo App
-			{authContext.currentUser ?
+			{authContext.currentUser?.uid ?
 				<>
 					{authContext.currentUser?.displayName}
 					<button onClick={signOut}>sign out</button>
 				</> :
-				<>
-					<button onClick={signInWithGoogle}>signIn with google</button>
-				</>
+				<></>
 			}
 		</header>
 	)
