@@ -19,7 +19,6 @@ export const AuthProvider: FC<props> = ({ children }: props) => {
 	useEffect(() => {
 		const unSub = () => {
 			auth.onAuthStateChanged((user) => {
-				console.log(user);
 				setCurrentUser(user);
 			})
 		}
